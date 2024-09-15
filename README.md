@@ -65,7 +65,7 @@ The **ESP32-WROOM ESP32s (38 Pin)** module is the most powerful and simplifies t
 
 ## Component List
 
-**Date:** Monday, September 9, 2024  
+**Date:** Monday, September 10, 2024  
 **Time:** 2:45 AM
 
 Here is the complete list of components for the project:
