@@ -1,0 +1,104 @@
+The Idea
+
+Monday, September 9, 2024
+1:19 AM
+
+The basics visualization of the project-03 is a device that works as a laser-alarm system, so let's start with how I took the first step until the currently updates and feature in my mind.
+
+The project-03:
+    
+		A laser-secure device that can do the following:
+1. notify me when an object crosses the laser line. 
+		2. I do not want to use Arduino, I believe that fewer components means more functionality.
+
+ Selecting Components:
+
+		Step 1: Choosing the Best Microcontroller.
+		
+			The microcontroller should offers:
+			
+					® Low power consumption.
+					
+					® Built-in connectivity (like Wi-Fi or Bluetooth for notifications).
+					
+					® Small form factor.
+			
+
+	• ESP32:
+
+		Why ESP32?
+		
+			§ Integrated Wi-Fi and Bluetooth: Ideal for sending notifications wirelessly.
+			
+			§ Dual-core processor: More processing power with fewer components.
+			
+			§ Multiple GPIO pins: Can handle sensors, lasers, and other components.
+			
+			§ Low power consumption and deep sleep modes.
+
+
+	• STM32 (If we prefer more control at the hardware level):
+
+		Why STM32?
+		
+			§ Offers high performance and is widely used in professional embedded systems.
+			
+			§ Can be used with fewer components and has a wide range of peripherals.
+
+
+Selecting Components
+
+Monday, September 9, 2024
+2:35 AM
+
+Ordering the Components:
+
+		I could find two models of the microcontrollers.
+		
+					® ESP32-WROOM ESP32s WiFi and Bluetooth Module (38 Pin)
+					
+						◊ It has built-in Wi-Fi and Bluetooth, making it ideal for sending notifications wirelessly.
+						
+						◊ 38 pins offer flexibility for connecting sensors (laser, photodiode), LEDs, and other components.
+						
+						◊ It is compatible with both C/C++ (via ESP-IDF or Arduino IDE), and MicroPython for programming.
+					® STM32F103C8T6 ARM Cortex M3 (Bluepill)
+					
+						◊ This Bluepill board is a great choice for low-power, high-performance applications.
+						
+							} We need to use with ESP8266, so ESP8266 could handle communication (Wi-Fi), while the STM32 handles processing, but this adds complexity (interfacing two microcontrollers).
+							
+		Best Approach:
+		
+			• Option 1: Stick with ESP32 for both processing and communication (Wi-Fi/Bluetooth) to keep it simple and minimize components.
+			
+			• Option 2: 
+				A. Use STM32F103C8T6 for more powerful processing and let ESP8266 handle the Wi-Fi.
+				
+				B. Use the STM32F103C8T6 to handle laser detection and local notifications. For wireless notifications, explore other alternatives like GSM modules or 433 MHz RF modules for simple wireless communication without relying on Wi-Fi/Bluetooth.
+				
+	Ø I am going with The ESP32-WROOM ESP32s (38 Pin) module is powerful and will simplify your project significantly by handling both the laser detection and notification functionalities with its built-in Wi-Fi and Bluetooth.
+
+
+Component List
+
+Monday, September 9, 2024
+2:45 AM
+
+Component List for the Project
+
+	v ESP32-WROOM ESP32s (38 Pin): This will handle the processing, detection, and notifications.
+	
+	v Laser Diode (650nm, 5mW): To create the laser line.
+	
+	v Photodiode or LDR (Light Dependent Resistor): To detect when the laser line is interrupted.
+	
+	v Resistors: For adjusting the sensitivity of the photodiode/LDR.
+	
+	v Buzzer or LED: For local notifications.
+	
+	v Power Supply: A 5V USB Power Module or LiPo battery to power the ESP32.
+	
+	v Breadboard and Jumper Wires: For prototyping the circuit.
+	
+	v Capacitors (Optional): To stabilize the power supply and prevent noise.
